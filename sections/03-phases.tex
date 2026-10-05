@@ -1,0 +1,62 @@
+\section{Phases}
+
+The campaign will have 3~week phases where the points increase by 250~points each phase
+(Phase~5 is extended by one week). The final phase will have 2000~points.
+This means the schedule will be as follows:
+
+% Campaign calendar: change \CampaignStartDate and/or \PhaseDurationDays.
+% Each phase length is inclusive; the next phase starts the following day.
+\newcommand{\CampaignStartDate}{2026-09-14}
+\newcommand{\DefaultPhaseLengthDays}{21}
+
+% #1 = phase number (1-based); Phase 5 is 4 weeks.
+\newcommand{\PhaseDurationDays}[1]{%
+  \ifnum#1=5
+    28%
+  \else
+    \DefaultPhaseLengthDays
+  \fi
+}
+
+\newcount\julianCampaignStart
+\newcount\phaseStartJulian
+\newcount\phaseEndJulian
+\newcount\phaseIter
+\pgfcalendardatetojulian{\CampaignStartDate}{\julianCampaignStart}
+
+\newcommand{\FormatJulianDate}[1]{%
+  \pgfcalendarjuliantodate{#1}{\tmpYear}{\tmpMonth}{\tmpDay}%
+  \ifnum\tmpDay<10 0\fi\number\tmpDay.%
+  \ifnum\tmpMonth<10 0\fi\number\tmpMonth.%
+  \tmpYear
+}
+
+% #1 = phase number (1-based)
+\newcommand{\PhaseDateRange}[1]{%
+  \phaseStartJulian=\julianCampaignStart
+  \phaseIter=1
+  \loop
+  \ifnum\phaseIter<#1
+    \advance\phaseStartJulian by \numexpr\PhaseDurationDays{\phaseIter}\relax
+    \advance\phaseIter by 1
+  \repeat
+  \phaseEndJulian=\numexpr\phaseStartJulian + \PhaseDurationDays{#1} - 1\relax
+  \FormatJulianDate{\phaseStartJulian}--\FormatJulianDate{\phaseEndJulian}%
+}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Phase} & \textbf{Phase Length} & \textbf{Points Value} & \textbf{Recommended Board Size} \\
+\midrule
+Phase 1 & \PhaseDateRange{1} & 500  & 30$''$ $\times$ 44$''$ \\
+Phase 2 & \PhaseDateRange{2} & 750  & 30$''$ $\times$ 44$''$ \\
+Phase 3 & \PhaseDateRange{3} & 1000 & 60$''$ $\times$ 44$''$ \\
+Phase 4 & \PhaseDateRange{4} & 1250 & 60$''$ $\times$ 44$''$ \\
+Phase 5 & \PhaseDateRange{5} & 1500 & 60$''$ $\times$ 44$''$ \\
+Phase 6 & \PhaseDateRange{6} & 1750 & 6$'$ $\times$ 4$'$ \\
+Phase 7 & \PhaseDateRange{7} & 2000 & 6$'$ $\times$ 4$'$ \\
+\bottomrule
+\end{tabular}
+\end{center}

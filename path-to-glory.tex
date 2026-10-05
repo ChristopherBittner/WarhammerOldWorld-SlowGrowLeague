@@ -1,0 +1,66 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Packages ---
+\usepackage[margin=2.5cm,headheight=14pt]{geometry}
+\usepackage{xurl}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{pgfcalendar}
+
+% --- Appearance ---
+\definecolor{ptgaccent}{HTML}{6B2D1A}
+\definecolor{ptgmuted}{HTML}{5A5348}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=ptgaccent,
+  urlcolor=ptgaccent,
+}
+
+\titleformat{\section}
+  {\Large\bfseries\color{ptgaccent}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{ptgmuted}}
+  {\thesubsection}{1em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textit{Slow Grow League 2}}
+\fancyhead[R]{\textit{Warhammer: The Old World}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Macros ---
+\newcommand{\CPshort}{CP}
+\newcommand{\XPshort}{XP}
+
+\title{Slow Grow League 2}
+\author{Campaign Rules\\[0.5em]Wartrond -- Trondheim\\[0.5em]\normalsize Version 0.2.1}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\input{sections/01-introduction}
+\input{sections/02-overseer}
+\input{sections/03-phases}
+\input{sections/04-rewards}
+\input{sections/05-to-battle}
+\input{sections/06-keeping-track}
+\input{sections/07-campaign-points}
+\input{sections/08-building-army}
+\input{sections/09-battle-march}
+\input{sections/10-battle_maps}
+
+\end{document}
