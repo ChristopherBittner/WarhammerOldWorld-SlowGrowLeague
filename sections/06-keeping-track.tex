@@ -5,20 +5,21 @@ Player will need to submit their results to the Overseer.
 A result consist of: 
 \begin{itemize}
   \item game date, 
-  \item players names, 
-  \item Victory Points, 
-  \item Points for killed units and characters,
-  \item Who controlls the treasure (if map had any) 
-  \item How much treasure was destroyed (if any)
-  \item Was army painted to a battle ready standard (at least 3 colours)
+  \item player name, 
+  \item victory points, 
+  \item points for killed units and characters,
+  \item was the treasure controlled (if was on map),
+  \item how much treasure was destroyed (if any),
+  \item was army painted to a battle ready standard (at least 3 colours).
 \end{itemize}
+This should be submitted after each game for both players. A player can delegate the information using the other player.
+
+
 Everything else is calculated by the Overseer (CP and EXP).
 
 \subsection{Scoring}
 
-Overseer will compare yous and your opponent difference of victory
-points you have earned during the match. Your score is based on this differential, see
-table below.
+Overseer will compare your and your opponent's victory points. Your score is based on this differential, see table below.
 
 \subsubsection{Victory Points}
 
@@ -69,7 +70,8 @@ Experience is tracked as a shared \XPshort{} pool for your army (similar to the 
 \begin{itemize}
   \item Gain 1~\XPshort{} for every 100~points of enemy units or characters destroyed
     (e.g.\ destroying 400~points of units grants 4~\XPshort).
-  \item Gain 1~\XPshort{} for every 200~points of enemy unit that has been reduced to 25\% of its starting Unit Strength or less.
+  \item Gain 1~\XPshort{} for every 200~points of enemy unit that has been reduced to 25\% of its starting Unit Strength or less that is alive, fleeing or has fled.
+  \item Units above 25\% of its starting Unit Strength grant no XP points even if they are fleeing or have fled.
   \item Gain (or lose) \XPshort{} equal to your Victory Points difference divided by~100.
     On a loss this value is negative.
 \end{itemize}
